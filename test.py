@@ -3,7 +3,8 @@ import sys
 print("sys.platform:", sys.platform)
 
 if sys.platform == "linux":
-    print("We are on linux!")
+    import requests
+    print("Import works!")
     exit(0)
 
 try:
