@@ -4,13 +4,10 @@ print("sys.platform:", sys.platform)
 
 if sys.platform == "linux":
     print("We are on linux!")
-    #if 1: #try:
-        #import requests
-        #raise Exception("Excepted to fail.")
-    #except:
+    exit(0)
 
-if sys.platform == "darwin":
-    print("We are on Mac!")
-
-if sys.platform == "nt":
-    print("We are on Windows, oh no...")
+try:
+    import requests
+    raise Exception("Expected to fail.")
+except ImportError:
+    print("Import failed as expected")
