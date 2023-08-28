@@ -4,9 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-requests = {version = "*", sys_platform = "!= 'linux'"}
+requests = {version = "*", sys_platform = "== 'linux'"}
 
 [dev-packages]
 
 [requires]
-python_version = "3.10"
+python_version = "3.11"
