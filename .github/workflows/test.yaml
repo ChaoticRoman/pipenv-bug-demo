@@ -18,7 +18,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
@@ -31,8 +31,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pipenv install --dev  # Add the --dev flag if you have development dependencies in your Pipfile
+        pipenv install --dev
 
     - name: Run test.py script
       run: |
-        pipenv run python test.py  # Replace 'test.py' with the path to your test script if different
+        pipenv run python test.py
