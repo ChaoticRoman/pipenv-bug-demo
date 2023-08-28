@@ -1,0 +1,38 @@
+name: Python Pipenv Test
+
+on:
+  push:
+    branches:
+      - main  # Replace with the name of your default branch if it's different
+  pull_request:
+    branches:
+      - main  # Replace with the name of your default branch if it's different
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: [3.8, 3.9]  # Add other Python versions if needed
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install pipenv
+      run: |
+        pip install pipenv
+
+    - name: Install dependencies
+      run: |
+        pipenv install --dev  # Add the --dev flag if you have development dependencies in your Pipfile
+
+    - name: Run test.py script
+      run: |
+        pipenv run python test.py  # Replace 'test.py' with the path to your test script if different
