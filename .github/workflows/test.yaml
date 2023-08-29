@@ -32,6 +32,7 @@ jobs:
     - name: Install dependencies
       run: |
         pipenv install --dev
+        pipenv run pip freeze
 
     - name: Run test.py script
       run: |
