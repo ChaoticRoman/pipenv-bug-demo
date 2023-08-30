@@ -27,7 +27,8 @@ jobs:
 
     - name: Install pipenv
       run: |
-        pip install pipenv
+        # pip install pipenv
+        pip install git+https://github.com/pypa/pipenv.git@transitive-sys-markers
 
     - name: Install dependencies
       run: |
